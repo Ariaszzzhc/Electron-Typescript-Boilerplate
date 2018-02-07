@@ -1,0 +1,17 @@
+{
+  "name": "electron-typescript-starter",
+  "version": "0.1.0",
+  "description": "A starter pack for electron and typescript",
+  "main": "index.js",
+  "author": "Arias",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^1.8.2"
+  },
+  "dependencies": {
+    "typescript": "^2.7.1"
+  }
+}
