@@ -6,12 +6,15 @@
   "author": "Arias",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
-    "electron": "^1.8.2"
+    "awesome-typescript-loader": "^3.4.1",
+    "electron": "^1.8.2",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.7.1",
+    "webpack": "^3.10.0"
   },
-  "dependencies": {
-    "typescript": "^2.7.1"
-  }
+  "dependencies": {}
 }
