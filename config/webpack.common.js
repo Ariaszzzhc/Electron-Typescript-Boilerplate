@@ -1,10 +1,23 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: './src/index.ts',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html',
+            inject: true
+        }),
+        new CleanWebpackPlugin(['dist'])
+    ],
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, '..', 'dist')
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
     module: {
         rules: [
             {
@@ -21,18 +34,5 @@ module.exports = {
             }
         ]
     },
-    devtool: "source-map",
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new UglifyJSPlugin({
-            sourceMap: true
-        })
-    ],
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js']
-    },
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    }
-};
+    target: 'electron-renderer'
+}
